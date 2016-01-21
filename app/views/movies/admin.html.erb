@@ -1,0 +1,14 @@
+<%= button_to 'Logout' , destroy_user_session_path, :method => :delete , class: "btn btn-primary" %><br/>
+<div class = "jumbotron">
+	<%= button_to "New Movie" , new_movie_path , class: "btn btn-primary" %><br/>	
+		<div class="row">
+			<% @movies.each do |movie| %>
+					<div class ="col-sm-6 col-md-3">
+						<div class="thumbnail">
+							<%= link_to (image_tag movie.image.url(:medium), class: 'image'), movie%>
+							<%= link_to 'Edit', edit_movie_path(movie) %> 
+						</div>
+					</div>
+			<%end%>
+		</div>
+</div>

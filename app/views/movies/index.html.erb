@@ -1,0 +1,30 @@
+<% if !user_signed_in? %>
+<div class="jumbotron">
+<h4>To read latest reviews by the latest critcs , please click the button to sign up </h4>
+<%= button_to "SignUp" , new_user_registration_path ,method: "get", class: "btn btn-primary" %>
+<br/>
+<%= button_to "Already have an account then SignIn" , new_user_session_path, method: "get" , class: "btn btn-primary" %>
+</div>
+<% else %>
+<button><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></button>
+<% end %>
+
+<% if current_user.try(:is_admin) %>
+<% controller.redirect_to admin_movies_path %>
+<% else %>
+<div class = "jumbotron">
+		<div class="row">
+			<% @movies.each do |movie| %>
+				<% if movie.hidden == true %>
+					<% next %>
+				<% else %>
+					<div class ="col-sm-6 col-md-3">
+						<div class="thumbnail">
+							<%= link_to (image_tag movie.image.url(:medium), class: 'image'), movie%>
+						</div>
+					</div>
+				<% end %>
+			<%end%>
+		</div>
+</div>
+<% end %>
