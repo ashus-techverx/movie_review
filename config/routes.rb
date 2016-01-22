@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :movies do
     collection do
       get 'admin'
+      get 'search'
+      get 'autocomplete'
     end
     resources :reviews, except: [:index , :show]
   end

@@ -1,17 +1,19 @@
 <% if !user_signed_in? %>
-<div class="jumbotron">
+<div class="jumbotron" background-color = "red" >
 <h4>To read latest reviews by the latest critcs , please click the button to sign up </h4>
 <%= button_to "SignUp" , new_user_registration_path ,method: "get", class: "btn btn-primary" %>
 <br/>
 <%= button_to "Already have an account then SignIn" , new_user_session_path, method: "get" , class: "btn btn-primary" %>
 </div>
 <% else %>
-<button><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></button>
+
+<%= button_to 'SignOut' , destroy_user_session_path, method: "delete", class: "btn btn-primary"  %>
 <% end %>
 
 <% if current_user.try(:is_admin) %>
 <% controller.redirect_to admin_movies_path %>
 <% else %>
+<div class = "animated bounceInLeft">
 <div class = "jumbotron">
 		<div class="row">
 			<% @movies.each do |movie| %>
@@ -28,3 +30,4 @@
 		</div>
 </div>
 <% end %>
+</div>

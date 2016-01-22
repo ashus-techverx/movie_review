@@ -2,18 +2,21 @@
 <html>
 <head>
   <title>MovieReview</title>
+  <link rel="stylesheet" href="animate.css">
+  <%= stylesheet_link_tag 'animate.css' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.9.3/typeahead.min.js" %>
   <%= csrf_meta_tags %>
 </head>
 
-<body background-color ="#AA4B47">
+<body>
 <%= render 'layouts/header' %>
 <div class="container">
 <%= yield %>
 <%- flash.each do |name, msg| -%>
-  <%= content_tag :div, msg, id: "flash_#{name}" %>
-  <%- end -%>
+ <%= content_tag :div, msg, id: "flash_#{name}" %>
+ <%- end -%>
 </div>
 </body>
 </html>

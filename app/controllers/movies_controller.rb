@@ -3,6 +3,23 @@ class MoviesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   # GET /movies
   # GET /movies.json
+
+  def search
+    if params[:search].present?
+    @movies = Movie.search(params[:search])
+  else
+    @movies = Movie.all
+  end
+end
+
+  def autocomplete
+    render json: Movie.search(params[:search], autocomplete: true, limit: 10).map(&:title)
+
+  end
+
+  
+
+
   def index
     @movies = Movie.all
   end

@@ -1,0 +1,18 @@
+<div class="animated bounceInLeft">
+<div class = "jumbotron">
+<h1> The search for <%= params[:search] %> has returned following results </h1>
+		<div class="row">
+			<% @movies.each do |movie| %>
+				<% if movie.hidden == true %>
+					<% next %>
+				<% else %>
+					<div class ="col-sm-6 col-md-3">
+						<div class="thumbnail">
+							<%= link_to (image_tag movie.image.url(:medium), class: 'image'), movie%>
+						</div>
+					</div>
+				<% end %>
+			<%end%>
+		</div>
+</div>
+</div>

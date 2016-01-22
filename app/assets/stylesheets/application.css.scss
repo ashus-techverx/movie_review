@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import "bootstrap-sprockets";
+@import 'animate';
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -17,8 +18,18 @@
  *= require_self
  */
 
-.body{
+body{
 
-	background: #AA4B47
+	background-image: image-url("de.jpg");
+}
 
+.review_title {
+	margin: 0 0 20px 0;
+}
+.reviews{
+	padding: 15px 0;
+	border-bottom: 1px solid #EAEAEA;
+	.star-rating{
+	padding-bottom: 8px;
+	}
 }

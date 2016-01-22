@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'devise'
 gem 'paperclip'
 gem 'bootstrap-sass'
+gem 'searchkick'
+gem 'animate.css-rails'
 ############
 
 gem 'rails', '4.2.4'
